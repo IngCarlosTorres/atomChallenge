@@ -21,9 +21,11 @@ winston.log
 *.log.*
 
 # Archivos de configuración y caché
-.env
+# .env
 
 # Firebase (si usas Firebase para Firestore)
-.firebase/
-firestore.rules.bak
-firestore.indexes.json.bak
+# .firebase/
+# firestore.rules.bak
+# firestore.indexes.json.bak
+
+src/config/firebaseConfig.json
