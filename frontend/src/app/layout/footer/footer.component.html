@@ -1,0 +1,19 @@
+<footer class="bg-gradient-to-r from-white to-orange-400 text-black py-6">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+
+        <!-- SECCIÓN IZQUIERDA -->
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <h2 class="text-lg font-semibold">ATOM</h2>
+            <p class="text-sm text-black">© 2025 ATOM. Todos los derechos reservados.</p>
+        </div>
+
+        <!-- ENLACES DE NAVEGACIÓN -->
+        <nav class="flex flex-wrap justify-center gap-6 text-sm">
+            <div *ngIf="menuData" class="flex gap-6">
+                <div *ngFor="let item of menuData.footer.home" class="flex items-center gap-2">
+                    <a [href]="item.link" class="flex items-center gap-2 hover:text-orange-600 transition"><span>{{ item.name }}</span></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</footer>

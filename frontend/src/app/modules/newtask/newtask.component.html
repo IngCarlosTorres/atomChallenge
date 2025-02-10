@@ -1,0 +1,36 @@
+<div class="min-h-screen flex flex-col bg-gray-100">
+    <app-header></app-header>
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 pt-16 p-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md py-8 pt-16">
+            <div class="flex justify-center mb-6">
+                <img src="assets/images/task.png" alt="Logo" class="w-24 h-24 ">
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Nueva tarea</h2>
+
+            <!-- Formulario -->
+            <form (ngSubmit)="onSubmit()" class="space-y-8">
+                <div>
+                    <label for="ltitle" class="block text-sm font-medium text-gray-700">Título</label>
+                    <input type="input" id="titleTask" name="titleTask" [(ngModel)]="titleTask"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                        placeholder="Ingrese el titulo de la tarea" required />
+                    <label for="ldescription" class="block text-sm font-medium text-gray-700 py-2">Descripción</label>
+                    <textarea id="descriptionTask" name="descriptionTask" [(ngModel)]="descriptionTask"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                        placeholder="Ingrese la descripción de la tarea" required></textarea>
+                </div>
+
+                <div class="flex justify-center">
+                    <button type="submit"
+                        class="w-1/2 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
+                        Registrar tarea
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

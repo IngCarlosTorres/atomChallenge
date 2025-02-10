@@ -1,0 +1,68 @@
+<header class="bg-gradient-to-l from-white to-orange-400 text-black shadow-md p-4">
+    <div class="container mx-auto flex justify-between items-center">
+
+        <!-- LOGO -->
+        <div class="text-2xl font-bold tracking-wide">
+            <a href="/">
+                <img alt="Logo de ATOM Chat" src="assets/images/logo-atom-chat.png"
+                    class="w-48 h-auto md:w-56 lg:w-64 max-w-full" />
+            </a>
+
+        </div>
+
+        <!-- NAVEGACIÓN -->
+        <nav class="hidden md:flex gap-6">
+            <div *ngIf="menuData" class="flex justify-between gap-6">
+                <div *ngIf="isLogin; else notLoggedNormal" class="flex gap-6">
+                    <div *ngFor="let item of menuData.header.admin" class="flex items-center gap-2">
+                        <a [href]="item.link" class="flex items-center gap-2 hover:text-orange-600 transition"><mat-icon
+                                class="text-lg">{{item.icon}}</mat-icon><span>{{ item.name }}</span></a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button (click)="logout()">
+                            <a class="flex items-center gap-2 hover:text-orange-600 transition"><mat-icon
+                                    class="text-lg">close</mat-icon><span>Cerrar sesión</span></a>
+                        </button>
+                    </div>
+                </div>
+                <ng-template #notLoggedNormal>
+                    <div class="flex gap-6">
+                        <div *ngFor="let item of menuData.header.home">
+                            <a [href]="item.link"
+                                class="flex items-center gap-2 hover:text-gray-300 transition"><mat-icon
+                                    class="text-lg">{{item.icon}}</mat-icon><span>{{ item.name }}</span></a>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </nav>
+
+        <!-- ICONO MENÚ MÓVIL -->
+        <button (click)="toggleMenu()" class="md:hidden text-black text-2xl">
+            ☰
+        </button>
+    </div>
+
+    <!-- MENÚ MÓVIL -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white text-black p-4 space-y-2">
+        <div *ngIf="menuData">
+            <div *ngIf="isLogin; else notLoggedMovil">
+                <div *ngFor="let item of menuData.header.admin">
+                    <a [href]="item.link" class="flex items-center gap-2 hover:text-gray-300 transition"><mat-icon
+                            class="text-lg">{{item.icon}}</mat-icon><span>{{ item.name }}</span></a>
+                </div>
+                <button (click)="logout()">
+                    <a class="flex items-center gap-2 hover:text-gray-300 transition"><mat-icon
+                            class="text-lg">close</mat-icon><span>Cerrar sesión</span></a>
+                </button>
+            </div>
+
+            <ng-template #notLoggedMovil>
+                <div *ngFor="let item of menuData.header.home">
+                    <a [href]="item.link" class="flex items-center gap-2 hover:text-gray-300 transition"><mat-icon
+                            class="text-lg">{{item.icon}}</mat-icon><span>{{ item.name }}</span></a>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</header>
